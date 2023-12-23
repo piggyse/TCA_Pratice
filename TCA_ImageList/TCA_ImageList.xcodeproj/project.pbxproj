@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		8D0BDE4E2B36E2C300DF77DC /* TCA_ImageListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0BDE4D2B36E2C300DF77DC /* TCA_ImageListApp.swift */; };
-		8D0BDE502B36E2C300DF77DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0BDE4F2B36E2C300DF77DC /* ContentView.swift */; };
+		8D0BDE502B36E2C300DF77DC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0BDE4F2B36E2C300DF77DC /* MainView.swift */; };
 		8D0BDE522B36E2C500DF77DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D0BDE512B36E2C500DF77DC /* Assets.xcassets */; };
 		8D0BDE552B36E2C500DF77DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D0BDE542B36E2C500DF77DC /* Preview Assets.xcassets */; };
 		8D0BDE5F2B36E2C500DF77DC /* TCA_ImageListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0BDE5E2B36E2C500DF77DC /* TCA_ImageListTests.swift */; };
 		8D0BDE692B36E2C500DF77DC /* TCA_ImageListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0BDE682B36E2C500DF77DC /* TCA_ImageListUITests.swift */; };
 		8D0BDE6B2B36E2C500DF77DC /* TCA_ImageListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0BDE6A2B36E2C500DF77DC /* TCA_ImageListUITestsLaunchTests.swift */; };
 		8D0BDE792B36E82000DF77DC /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 8D0BDE782B36E82000DF77DC /* ComposableArchitecture */; };
+		8D0BDE7B2B36E9CC00DF77DC /* ImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0BDE7A2B36E9CC00DF77DC /* ImageUseCase.swift */; };
+		8D0BDE7D2B36E9DC00DF77DC /* ImageMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0BDE7C2B36E9DC00DF77DC /* ImageMetaData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +39,7 @@
 /* Begin PBXFileReference section */
 		8D0BDE4A2B36E2C300DF77DC /* TCA_ImageList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCA_ImageList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D0BDE4D2B36E2C300DF77DC /* TCA_ImageListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCA_ImageListApp.swift; sourceTree = "<group>"; };
-		8D0BDE4F2B36E2C300DF77DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8D0BDE4F2B36E2C300DF77DC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8D0BDE512B36E2C500DF77DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D0BDE542B36E2C500DF77DC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8D0BDE5A2B36E2C500DF77DC /* TCA_ImageListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCA_ImageListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +47,8 @@
 		8D0BDE642B36E2C500DF77DC /* TCA_ImageListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCA_ImageListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D0BDE682B36E2C500DF77DC /* TCA_ImageListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCA_ImageListUITests.swift; sourceTree = "<group>"; };
 		8D0BDE6A2B36E2C500DF77DC /* TCA_ImageListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCA_ImageListUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8D0BDE7A2B36E9CC00DF77DC /* ImageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUseCase.swift; sourceTree = "<group>"; };
+		8D0BDE7C2B36E9DC00DF77DC /* ImageMetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMetaData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +101,9 @@
 			isa = PBXGroup;
 			children = (
 				8D0BDE4D2B36E2C300DF77DC /* TCA_ImageListApp.swift */,
-				8D0BDE4F2B36E2C300DF77DC /* ContentView.swift */,
+				8D0BDE4F2B36E2C300DF77DC /* MainView.swift */,
+				8D0BDE7A2B36E9CC00DF77DC /* ImageUseCase.swift */,
+				8D0BDE7C2B36E9DC00DF77DC /* ImageMetaData.swift */,
 				8D0BDE512B36E2C500DF77DC /* Assets.xcassets */,
 				8D0BDE532B36E2C500DF77DC /* Preview Content */,
 			);
@@ -265,7 +271,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D0BDE502B36E2C300DF77DC /* ContentView.swift in Sources */,
+				8D0BDE7B2B36E9CC00DF77DC /* ImageUseCase.swift in Sources */,
+				8D0BDE502B36E2C300DF77DC /* MainView.swift in Sources */,
+				8D0BDE7D2B36E9DC00DF77DC /* ImageMetaData.swift in Sources */,
 				8D0BDE4E2B36E2C300DF77DC /* TCA_ImageListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,6 +446,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -467,6 +476,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
