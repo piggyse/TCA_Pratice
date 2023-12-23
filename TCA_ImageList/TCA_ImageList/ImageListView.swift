@@ -30,5 +30,8 @@ struct ImageListView: View {
                     .frame(width: 300, height: 300)
             }
         }
+        .task {
+            viewStore.send(.fetchImageMetaDataArray)
+        }
     }
 }
