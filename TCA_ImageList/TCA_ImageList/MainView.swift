@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MainView.swift
 //  TCA_ImageList
 //
 //  Created by 박진섭 on 12/23/23.
