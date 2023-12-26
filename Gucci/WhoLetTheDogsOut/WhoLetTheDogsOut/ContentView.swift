@@ -21,7 +21,7 @@ struct ContentView: View {
                         .overlay {
                             ProgressView()
                                 .progressViewStyle(CircularProgressViewStyle(tint: .orange))
-                                .scaleEffect(3)                            
+                                .scaleEffect(3)
                         }
                 case .success(let image):
                     image
@@ -42,11 +42,18 @@ struct ContentView: View {
             .id(id)
             
             Spacer()
-            
-            Button {
-                id = UUID()
-            } label: {
-                Text("이미지 불러오기")
+            HStack {
+                Button {
+                    id = UUID()
+                } label: {
+                    Text("이미지 불러오기")
+                }
+                
+                Button {
+                    id = UUID()
+                } label: {
+                    Text("이미지 추가하기")
+                }
             }
             .buttonStyle(.borderedProminent)
         }
