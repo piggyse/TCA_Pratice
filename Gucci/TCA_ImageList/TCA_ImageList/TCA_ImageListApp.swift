@@ -1,14 +1,14 @@
 //
-//  WhoLetTheDogsOutApp.swift
-//  WhoLetTheDogsOut
+//  TCA_ImageListApp.swift
+//  TCA_ImageList
 //
-//  Created by Gucci on 12/18/23.
+//  Created by Gucci on 1/2/24.
 //
 
 import SwiftUI
 
 @main
-struct WhoLetTheDogsOutApp: App {
+struct TCA_ImageListApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
