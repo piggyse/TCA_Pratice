@@ -6,7 +6,7 @@
 - 새로고침
 - 상세 화면
 - 이미지 추가, 삭제, 수정
-
+- Image Fecthing 로직 unitTest
 
 ### 자료 
 - https://github.com/pointfreeco/swift-composable-architecture
