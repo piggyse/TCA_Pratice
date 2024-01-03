@@ -20,5 +20,4 @@ final class ImageUseCase {
               let response = try? await URLSession.shared.data(for: .init(url: url)) else { return nil }
         return response.0
     }
-
 }

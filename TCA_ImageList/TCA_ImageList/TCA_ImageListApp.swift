@@ -11,7 +11,7 @@ import SwiftUI
 struct TCA_ImageListApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MainView(store: .init(initialState: MainViewReducer.State(), reducer: { MainViewReducer()._printChanges() }))
         }
     }
 }

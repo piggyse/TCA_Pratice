@@ -10,10 +10,10 @@ import ComposableArchitecture
 import SDWebImageSwiftUI
 
 struct ImageListView: View {
-    private let store: StoreOf<ImageListViewFeature>
-    @ObservedObject var viewStore: ViewStoreOf<ImageListViewFeature>
+    private let store: StoreOf<ListViewReducer>
+    @ObservedObject var viewStore: ViewStoreOf<ListViewReducer>
 
-    init(store: StoreOf<ImageListViewFeature>) {
+    init(store: StoreOf<ListViewReducer>) {
         self.store = store
         self.viewStore = .init(store, observe: { $0 })
     }
