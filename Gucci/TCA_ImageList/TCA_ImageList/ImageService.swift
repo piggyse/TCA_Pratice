@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ImageFetchable { 
+protocol ImageFetchable {
     func fetchImage() async -> ImageInfo?
     func fetchList() async -> [ImageInfo]
 }
@@ -18,6 +18,19 @@ struct ImageService: ImageFetchable {
     }
     
     func fetchList() async -> [ImageInfo] {
-        return []
+        guard let endUrl = URL(string: "https://api.unsplash.com/photos?client_id=pw9v2LZb37qkSEeX45NqeGenp2vKA6i65OwgxlQEryw") else { return [] }
+        guard let (data, _) = try? await URLSession.shared.data(from: endUrl) else { return [] }
+        
+        if let imageInfomations = try? JSONDecoder().decode([ImageInfo].self, from: data) {
+            return imageInfomations
+        } else {
+            if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers),
+               let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted) {
+                print(String(decoding: jsonData, as: UTF8.self))
+            } else {
+                print("json data malformed")
+            }
+            return []
+        }
     }
 }

@@ -21,7 +21,9 @@ struct PhotoCell: View {
             case .success(let image):
                 image
                     .resizable()
-                    .aspectRatio(1, contentMode: .fit)
+                    .edgesIgnoringSafeArea(.all)
+                    .aspectRatio(contentMode: .fill)
+                    .clipped()
             case .failure(_):
                 failureView
             @unknown default:
@@ -54,5 +56,5 @@ private extension PhotoCell {
 }
 
 #Preview {
-    PhotoCell(remoteImagePath: "https://picsum.photos/seed/picsum/200/300")
+    PhotoCell(remoteImagePath: "https://images.unsplash.com/photo-1682685796186-1bb4a5655653?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzOTQ1MDB8MXwxfGFsbHwxfHx8fHx8Mnx8MTcwNDI4Nzc4NXw&ixlib=rb-4.0.3&q=80&w=400")
 }

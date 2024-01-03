@@ -11,7 +11,7 @@
 		BEF644BF2B44543A0081B18B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF644BE2B44543A0081B18B /* ContentView.swift */; };
 		BEF644C12B44543C0081B18B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEF644C02B44543C0081B18B /* Assets.xcassets */; };
 		BEF644C42B44543C0081B18B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEF644C32B44543C0081B18B /* Preview Assets.xcassets */; };
-		BEF644D02B4454AD0081B18B /* PicsumResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF644CA2B4454AD0081B18B /* PicsumResponse.swift */; };
+		BEF644D02B4454AD0081B18B /* ImageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF644CA2B4454AD0081B18B /* ImageInfo.swift */; };
 		BEF644D12B4454AD0081B18B /* ImageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF644CB2B4454AD0081B18B /* ImageListView.swift */; };
 		BEF644D22B4454AD0081B18B /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF644CC2B4454AD0081B18B /* ImageService.swift */; };
 		BEF644D32B4454AD0081B18B /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF644CD2B4454AD0081B18B /* PhotoCell.swift */; };
@@ -23,7 +23,7 @@
 		BEF644BE2B44543A0081B18B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BEF644C02B44543C0081B18B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEF644C32B44543C0081B18B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		BEF644CA2B4454AD0081B18B /* PicsumResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicsumResponse.swift; sourceTree = "<group>"; };
+		BEF644CA2B4454AD0081B18B /* ImageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageInfo.swift; sourceTree = "<group>"; };
 		BEF644CB2B4454AD0081B18B /* ImageListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageListView.swift; sourceTree = "<group>"; };
 		BEF644CC2B4454AD0081B18B /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		BEF644CD2B4454AD0081B18B /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 				BEF644CB2B4454AD0081B18B /* ImageListView.swift */,
 				BEF644CC2B4454AD0081B18B /* ImageService.swift */,
 				BEF644CD2B4454AD0081B18B /* PhotoCell.swift */,
-				BEF644CA2B4454AD0081B18B /* PicsumResponse.swift */,
+				BEF644CA2B4454AD0081B18B /* ImageInfo.swift */,
 				BEF644C02B44543C0081B18B /* Assets.xcassets */,
 				BEF644C22B44543C0081B18B /* Preview Content */,
 			);
@@ -154,7 +154,7 @@
 				BEF644BD2B44543A0081B18B /* TCA_ImageListApp.swift in Sources */,
 				BEF644D22B4454AD0081B18B /* ImageService.swift in Sources */,
 				BEF644D32B4454AD0081B18B /* PhotoCell.swift in Sources */,
-				BEF644D02B4454AD0081B18B /* PicsumResponse.swift in Sources */,
+				BEF644D02B4454AD0081B18B /* ImageInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

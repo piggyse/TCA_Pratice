@@ -13,9 +13,10 @@ struct ImageListView: View {
     
     var body: some View {
         List(images) { imageInfo in
-            let urlString = imageInfo.url
-            PhotoCell(remoteImagePath: urlString)
+            let remotePath = imageInfo.urls.small
+            PhotoCell(remoteImagePath: remotePath)
         }
+        .listStyle(.plain)
         .task(priority: .background) {
             self.images = await service.fetchList()
         }
