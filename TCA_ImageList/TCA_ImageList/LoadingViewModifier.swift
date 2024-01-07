@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import ComposableArchitecture
 
 struct LoadingViewModifier: ViewModifier {
     private var isLoading: Bool = true

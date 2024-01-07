@@ -19,7 +19,7 @@ struct MainViewReducer: Reducer {
 
     var body: some Reducer<State, Action> {
         // child reducer 정의
-        Scope(state: \.imageListViewState, action: /Action.listViewDataIsLoaded) {
+        Scope(state: \.imageListViewState, action:  /Action.listViewDataIsLoaded) {
             ListViewReducer()
         }
         
@@ -27,7 +27,6 @@ struct MainViewReducer: Reducer {
             switch action {
             case .listViewDataIsLoaded(.imageMetaDataResponse):
                 state.isLoading = false
-                print(state.isLoading)
                 return .none
             default:
                 return .none

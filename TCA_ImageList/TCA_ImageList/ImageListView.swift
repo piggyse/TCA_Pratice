@@ -15,7 +15,7 @@ struct ImageListView: View {
 
     init(store: StoreOf<ListViewReducer>) {
         self.store = store
-        self.viewStore = .init(store, observe: { $0 })
+        self.viewStore = .init(store, observe: { ListViewReducer.State(imageMetaDataArray: $0.imageMetaDataArray)} )
     }
 
     var body: some View {

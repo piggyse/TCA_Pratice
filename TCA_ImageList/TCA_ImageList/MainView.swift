@@ -25,4 +25,3 @@ struct MainView: View {
         .loadingView(viewStore.isLoading)
     }
 }
-

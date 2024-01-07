@@ -9,6 +9,11 @@ import ComposableArchitecture
 
 struct ListViewReducer: Reducer {
     private let imageUseCase = ImageUseCase()
+    private let requestImageSize: Int
+
+    init(requestImageSize: Int = 5) {
+        self.requestImageSize = requestImageSize
+    }
 
     struct State: Equatable {
         var imageMetaDataArray: [ImageMetaData] = []
@@ -25,7 +30,7 @@ struct ListViewReducer: Reducer {
         switch action {
         case .fetchImageMetaDataArray:
             return .run { send in
-                let imageMetaDataArray = await imageUseCase.requestImageMetaDataList(size: 5) ?? []
+                let imageMetaDataArray = await imageUseCase.requestImageMetaDataList(size: requestImageSize) ?? []
                 await send(.imageMetaDataResponse(imageMetaDataArray))
             }
         case .fetchMoreImageMetaData(let size):
