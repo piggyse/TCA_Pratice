@@ -27,6 +27,7 @@ struct ImageListView: View {
                             .frame(width: 300, height: 300)
                     })
                     .resizable()
+                    .scaledToFill()
                     .frame(width: 300, height: 300)
             }
         }

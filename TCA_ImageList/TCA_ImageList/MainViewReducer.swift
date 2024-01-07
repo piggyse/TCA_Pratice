@@ -14,18 +14,18 @@ struct MainViewReducer: Reducer {
     }
 
     enum Action: Equatable {
-        case listViewDataIsLoaded(ListViewReducer.Action)
+        case listViewAction(ListViewReducer.Action)
     }
 
     var body: some Reducer<State, Action> {
         // child reducer 정의
-        Scope(state: \.imageListViewState, action:  /Action.listViewDataIsLoaded) {
+        Scope(state: \.imageListViewState, action:  /Action.listViewAction) {
             ListViewReducer()
         }
         
         Reduce { state, action in
             switch action {
-            case .listViewDataIsLoaded(.imageMetaDataResponse):
+            case .listViewAction(.imageMetaDataResponse):
                 state.isLoading = false
                 return .none
             default:

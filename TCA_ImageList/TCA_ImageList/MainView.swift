@@ -11,6 +11,7 @@ import ComposableArchitecture
 struct MainView: View {
     private let store: StoreOf<MainViewReducer>
     @ObservedObject var viewStore: ViewStoreOf<MainViewReducer>
+    @State private var moreImageSizeText: String = ""
 
     init(store: StoreOf<MainViewReducer>) {
         self.store = store
@@ -18,10 +19,29 @@ struct MainView: View {
     }
 
     var body: some View {
-        ScrollView {
-            ImageListView(store: self.store.scope(state: \.imageListViewState,
-                                                  action: MainViewReducer.Action.listViewDataIsLoaded))
+        VStack {
+            HStack {
+                TextField("숫자를 입력해주세요.", text: $moreImageSizeText)
+                    .padding(6)
+                    .overlay(content: {
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.blue)
+                    })
+                    .padding(.trailing, 16)
+                Button("확인") {
+                    guard let imageSize = Int(moreImageSizeText) else { return }
+                    store.send(.listViewAction(.fetchMoreImageMetaData(imageSize)))
+                }
+                .buttonStyle(.borderedProminent)
+            }
+            ScrollView {
+                ImageListView(store: self.store.scope(state: \.imageListViewState,
+                                                      action: MainViewReducer.Action.listViewAction))
+            }
         }
+        .padding()
         .loadingView(viewStore.isLoading)
     }
 }
+
+
