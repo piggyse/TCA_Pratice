@@ -8,7 +8,6 @@
 import ComposableArchitecture
 
 struct ListViewReducer: Reducer {
-    private let imageUseCase = ImageUseCase()
     private let requestImageSize: Int
 
     init(requestImageSize: Int = 5) {
@@ -25,6 +24,8 @@ struct ListViewReducer: Reducer {
         case imageMetaDataResponse([ImageMetaData])
         case moreImageMetaDataResponse([ImageMetaData])
     }
+
+    @Dependency(\.imageUseCase) private var imageUseCase
 
     func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
