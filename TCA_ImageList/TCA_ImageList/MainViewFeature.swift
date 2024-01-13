@@ -7,20 +7,20 @@
 
 import ComposableArchitecture
 
-struct MainViewReducer: Reducer {
+struct MainViewFeature: Reducer {
     struct State: Equatable {
         var isLoading = true
-        var imageListViewState = ListViewReducer.State()
+        var imageListViewState = ListViewFeature.State()
     }
 
     enum Action: Equatable {
-        case listViewAction(ListViewReducer.Action)
+        case listViewAction(ListViewFeature.Action)
     }
 
     var body: some Reducer<State, Action> {
         // child reducer 정의
         Scope(state: \.imageListViewState, action:  /Action.listViewAction) {
-            ListViewReducer()
+            ListViewFeature()
         }
         
         Reduce { state, action in

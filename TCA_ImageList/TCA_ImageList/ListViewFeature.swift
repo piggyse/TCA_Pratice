@@ -7,7 +7,7 @@
 
 import ComposableArchitecture
 
-struct ListViewReducer: Reducer {
+struct ListViewFeature: Reducer {
     private let requestImageSize: Int
 
     init(requestImageSize: Int = 5) {
@@ -15,6 +15,7 @@ struct ListViewReducer: Reducer {
     }
 
     struct State: Equatable {
+//        @PresentationState var detailItem
         var imageMetaDataArray: [ImageMetaData] = []
     }
 

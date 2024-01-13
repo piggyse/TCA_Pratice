@@ -15,12 +15,12 @@
 		8D0BDE6B2B36E2C500DF77DC /* TCA_ImageListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0BDE6A2B36E2C500DF77DC /* TCA_ImageListUITestsLaunchTests.swift */; };
 		8D0BDE792B36E82000DF77DC /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 8D0BDE782B36E82000DF77DC /* ComposableArchitecture */; };
 		8D0BDE7D2B36E9DC00DF77DC /* ImageMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0BDE7C2B36E9DC00DF77DC /* ImageMetaData.swift */; };
-		8D0BDE7F2B36EA6300DF77DC /* ListViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0BDE7E2B36EA6300DF77DC /* ListViewReducer.swift */; };
+		8D0BDE7F2B36EA6300DF77DC /* ListViewFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0BDE7E2B36EA6300DF77DC /* ListViewFeature.swift */; };
 		8D0BDE812B36EAC300DF77DC /* ImageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0BDE802B36EAC300DF77DC /* ImageListView.swift */; };
 		8D0BDE842B36EB3A00DF77DC /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8D0BDE832B36EB3A00DF77DC /* SDWebImageSwiftUI */; };
 		8D0BDE882B36ED9A00DF77DC /* LoadingViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0BDE872B36ED9A00DF77DC /* LoadingViewModifier.swift */; };
 		8DB688ED2B4462F700F2DF1D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB688EC2B4462F700F2DF1D /* MainView.swift */; };
-		8DB688EF2B45A10C00F2DF1D /* MainViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB688EE2B45A10C00F2DF1D /* MainViewReducer.swift */; };
+		8DB688EF2B45A10C00F2DF1D /* MainViewFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB688EE2B45A10C00F2DF1D /* MainViewFeature.swift */; };
 		8DB689492B501BF300F2DF1D /* Dependenies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB689482B501BF300F2DF1D /* Dependenies.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,11 +52,11 @@
 		8D0BDE682B36E2C500DF77DC /* TCA_ImageListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCA_ImageListUITests.swift; sourceTree = "<group>"; };
 		8D0BDE6A2B36E2C500DF77DC /* TCA_ImageListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCA_ImageListUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8D0BDE7C2B36E9DC00DF77DC /* ImageMetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMetaData.swift; sourceTree = "<group>"; };
-		8D0BDE7E2B36EA6300DF77DC /* ListViewReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewReducer.swift; sourceTree = "<group>"; };
+		8D0BDE7E2B36EA6300DF77DC /* ListViewFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewFeature.swift; sourceTree = "<group>"; };
 		8D0BDE802B36EAC300DF77DC /* ImageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListView.swift; sourceTree = "<group>"; };
 		8D0BDE872B36ED9A00DF77DC /* LoadingViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewModifier.swift; sourceTree = "<group>"; };
 		8DB688EC2B4462F700F2DF1D /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		8DB688EE2B45A10C00F2DF1D /* MainViewReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewReducer.swift; sourceTree = "<group>"; };
+		8DB688EE2B45A10C00F2DF1D /* MainViewFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewFeature.swift; sourceTree = "<group>"; };
 		8DB689482B501BF300F2DF1D /* Dependenies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependenies.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,9 +112,9 @@
 			children = (
 				8D0BDE4D2B36E2C300DF77DC /* TCA_ImageListApp.swift */,
 				8DB688EC2B4462F700F2DF1D /* MainView.swift */,
-				8DB688EE2B45A10C00F2DF1D /* MainViewReducer.swift */,
+				8DB688EE2B45A10C00F2DF1D /* MainViewFeature.swift */,
 				8D0BDE802B36EAC300DF77DC /* ImageListView.swift */,
-				8D0BDE7E2B36EA6300DF77DC /* ListViewReducer.swift */,
+				8D0BDE7E2B36EA6300DF77DC /* ListViewFeature.swift */,
 				8D0BDE7C2B36E9DC00DF77DC /* ImageMetaData.swift */,
 				8D0BDE872B36ED9A00DF77DC /* LoadingViewModifier.swift */,
 				8DB689482B501BF300F2DF1D /* Dependenies.swift */,
@@ -289,8 +289,8 @@
 			files = (
 				8D0BDE812B36EAC300DF77DC /* ImageListView.swift in Sources */,
 				8DB688ED2B4462F700F2DF1D /* MainView.swift in Sources */,
-				8DB688EF2B45A10C00F2DF1D /* MainViewReducer.swift in Sources */,
-				8D0BDE7F2B36EA6300DF77DC /* ListViewReducer.swift in Sources */,
+				8DB688EF2B45A10C00F2DF1D /* MainViewFeature.swift in Sources */,
+				8D0BDE7F2B36EA6300DF77DC /* ListViewFeature.swift in Sources */,
 				8D0BDE882B36ED9A00DF77DC /* LoadingViewModifier.swift in Sources */,
 				8D0BDE7D2B36E9DC00DF77DC /* ImageMetaData.swift in Sources */,
 				8D0BDE4E2B36E2C300DF77DC /* TCA_ImageListApp.swift in Sources */,

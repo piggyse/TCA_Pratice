@@ -10,12 +10,12 @@ import ComposableArchitecture
 import SDWebImageSwiftUI
 
 struct ImageListView: View {
-    private let store: StoreOf<ListViewReducer>
-    @ObservedObject var viewStore: ViewStoreOf<ListViewReducer>
+    private let store: StoreOf<ListViewFeature>
+    @ObservedObject var viewStore: ViewStoreOf<ListViewFeature>
 
-    init(store: StoreOf<ListViewReducer>) {
+    init(store: StoreOf<ListViewFeature>) {
         self.store = store
-        self.viewStore = .init(store, observe: { ListViewReducer.State(imageMetaDataArray: $0.imageMetaDataArray)} )
+        self.viewStore = .init(store, observe: { ListViewFeature.State(imageMetaDataArray: $0.imageMetaDataArray)} )
     }
 
     var body: some View {
@@ -29,6 +29,9 @@ struct ImageListView: View {
                     .resizable()
                     .scaledToFill()
                     .frame(width: 300, height: 300)
+                    .onTapGesture {
+                        
+                    }
             }
         }
         .task {

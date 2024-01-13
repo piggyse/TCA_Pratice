@@ -9,11 +9,11 @@ import SwiftUI
 import ComposableArchitecture
 
 struct MainView: View {
-    private let store: StoreOf<MainViewReducer>
-    @ObservedObject var viewStore: ViewStoreOf<MainViewReducer>
+    private let store: StoreOf<MainViewFeature>
+    @ObservedObject var viewStore: ViewStoreOf<MainViewFeature>
     @State private var moreImageSizeText: String = ""
 
-    init(store: StoreOf<MainViewReducer>) {
+    init(store: StoreOf<MainViewFeature>) {
         self.store = store
         self.viewStore = .init(store, observe: { $0 })
     }
@@ -36,7 +36,7 @@ struct MainView: View {
             }
             ScrollView {
                 ImageListView(store: self.store.scope(state: \.imageListViewState,
-                                                      action: MainViewReducer.Action.listViewAction))
+                                                      action: MainViewFeature.Action.listViewAction))
             }
         }
         .padding()
