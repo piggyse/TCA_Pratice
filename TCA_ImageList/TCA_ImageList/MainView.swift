@@ -10,7 +10,7 @@ import ComposableArchitecture
 
 struct MainView: View {
     private let store: StoreOf<MainViewFeature>
-    @ObservedObject var viewStore: ViewStoreOf<MainViewFeature>
+    @ObservedObject private var viewStore: ViewStoreOf<MainViewFeature>
     @State private var moreImageSizeText: String = ""
 
     init(store: StoreOf<MainViewFeature>) {
@@ -34,6 +34,8 @@ struct MainView: View {
                 }
                 .buttonStyle(.borderedProminent)
             }
+            .padding(.bottom, 8)
+
             ScrollView {
                 ImageListView(store: self.store.scope(state: \.imageListViewState,
                                                       action: MainViewFeature.Action.listViewAction))
