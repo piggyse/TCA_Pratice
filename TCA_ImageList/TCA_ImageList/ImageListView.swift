@@ -19,23 +19,26 @@ struct ImageListView: View {
     }
 
     var body: some View {
-        LazyVStack {
-            ForEach(viewStore.imageMetaDataArray) { imageMetaData in
-                WebImage(url: .init(string: imageMetaData.download_url))
-                    .placeholder(content: {
-                        ProgressView()
+        NavigationStackStore(self.store.scope(state: \.path, action: \.path)) {
+            LazyVStack {
+                ForEach(viewStore.imageMetaDataArray) { imageMetaData in
+                    NavigationLink(state: ListItemViewFeature.State(imageMetaData: imageMetaData)) {
+                        WebImage(url: .init(string: imageMetaData.download_url))
+                            .placeholder(content: {
+                                ProgressView()
+                                    .frame(width: 300, height: 300)
+                            })
+                            .resizable()
+                            .scaledToFill()
                             .frame(width: 300, height: 300)
-                    })
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 300, height: 300)
-                    .onTapGesture {
-                        
                     }
+                }
             }
-        }
-        .task {
-            viewStore.send(.fetchImageMetaDataArray)
+            .task {
+                viewStore.send(.fetchImageMetaDataArray)
+            }
+        } destination: { store in
+            ListItemView(store: store)
         }
     }
 }

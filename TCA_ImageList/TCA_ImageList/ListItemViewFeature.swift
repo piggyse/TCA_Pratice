@@ -8,19 +8,27 @@
 import Foundation
 import ComposableArchitecture
 
-struct ListItemFeature: Reducer {
+struct ListItemViewFeature: Reducer {
 
     struct State: Equatable {
-        var author: String
+        var imageMetaData: ImageMetaData
     }
 
     enum Action: Equatable {
         case deleteItem
+        case delegate(Delegate)
+
+        @CasePathable
+        enum Delegate {
+          case deleteImage
+        }
     }
 
     func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
         case .deleteItem:
+            return .none
+        case .delegate:
             return .none
         }
     }

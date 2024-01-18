@@ -7,17 +7,12 @@
 
 import ComposableArchitecture
 
-struct ListViewFeature: Reducer {
-    private let requestImageSize: Int
-
-    init(requestImageSize: Int = 5) {
-        self.requestImageSize = requestImageSize
-    }
+@Reducer
+struct ListViewFeature {
 
     struct State: Equatable {
-        @PresentationState var destination: Destination.State?
         var imageMetaDataArray: IdentifiedArrayOf<ImageMetaData> = []
-        var path = StackState<ListItemFeature.State>()
+        var path = StackState<ListItemViewFeature.State>()
     }
 
     enum Action: Equatable {
@@ -25,24 +20,7 @@ struct ListViewFeature: Reducer {
         case fetchMoreImageMetaData(Int)
         case imageMetaDataResponse([ImageMetaData])
         case moreImageMetaDataResponse([ImageMetaData])
-        case destination(PresentationAction<Destination.Action>)
-    }
-
-    @Reducer
-    struct Destination {
-        enum State: Equatable {
-            case detail(ListItemFeature.State)
-        }
-
-        enum Action: Equatable {
-            case detail(ListItemFeature.Action)
-        }
-
-        var body: some ReducerOf<Self> {
-            Scope(state: \.detail, action: \.detail) {
-                ListItemFeature()
-            }
-        }
+        case path(StackAction<ListItemViewFeature.State, ListItemViewFeature.Action>)
     }
 
     @Dependency(\.imageUseCase) private var imageUseCase
@@ -52,7 +30,7 @@ struct ListViewFeature: Reducer {
             switch action {
             case .fetchImageMetaDataArray:
                 return .run { send in
-                    let imageMetaDataArray = await imageUseCase.requestImageMetaDataList(size: requestImageSize) ?? []
+                    let imageMetaDataArray = await imageUseCase.requestImageMetaDataList(size: 5) ?? []
                     await send(.imageMetaDataResponse(imageMetaDataArray))
                 }
             case .fetchMoreImageMetaData(let size):
@@ -66,10 +44,14 @@ struct ListViewFeature: Reducer {
             case .moreImageMetaDataResponse(let imageMetaData):
                 state.imageMetaDataArray.append(contentsOf: imageMetaData)
                 return .none
-            case .destination(_):
-//                state.destination = .detail(.init(author: detailItem))
+            case .path:
                 return .none
             }
         }
+        .forEach(\.path, action: \.path) {
+            ListItemViewFeature()
+        }
     }
 }
+
+// 매크로 reducer 채택안하면 subscript 에러남.

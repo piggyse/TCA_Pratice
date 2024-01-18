@@ -22,7 +22,7 @@ struct MainViewFeature: Reducer {
         Scope(state: \.imageListViewState, action:  /Action.listViewAction) {
             ListViewFeature()
         }
-        
+
         Reduce { state, action in
             switch action {
             case .listViewAction(.imageMetaDataResponse):
