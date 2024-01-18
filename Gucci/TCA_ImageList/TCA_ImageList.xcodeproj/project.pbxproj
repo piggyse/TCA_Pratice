@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BEB11CBF2B4ED16400E70D1E /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = BEB11CBE2B4ED16400E70D1E /* ComposableArchitecture */; };
+		BEB11CC12B4ED22F00E70D1E /* PhotoCellFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB11CC02B4ED22F00E70D1E /* PhotoCellFeature.swift */; };
 		BEF644BD2B44543A0081B18B /* TCA_ImageListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF644BC2B44543A0081B18B /* TCA_ImageListApp.swift */; };
 		BEF644BF2B44543A0081B18B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF644BE2B44543A0081B18B /* ContentView.swift */; };
 		BEF644C12B44543C0081B18B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEF644C02B44543C0081B18B /* Assets.xcassets */; };
@@ -18,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BEB11CC02B4ED22F00E70D1E /* PhotoCellFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCellFeature.swift; sourceTree = "<group>"; };
 		BEF644B92B44543A0081B18B /* TCA_ImageList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCA_ImageList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEF644BC2B44543A0081B18B /* TCA_ImageListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCA_ImageListApp.swift; sourceTree = "<group>"; };
 		BEF644BE2B44543A0081B18B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEB11CBF2B4ED16400E70D1E /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +68,7 @@
 				BEF644CB2B4454AD0081B18B /* ImageListView.swift */,
 				BEF644CC2B4454AD0081B18B /* ImageService.swift */,
 				BEF644CD2B4454AD0081B18B /* PhotoCell.swift */,
+				BEB11CC02B4ED22F00E70D1E /* PhotoCellFeature.swift */,
 				BEF644CA2B4454AD0081B18B /* ImageInfo.swift */,
 				BEF644C02B44543C0081B18B /* Assets.xcassets */,
 				BEF644C22B44543C0081B18B /* Preview Content */,
@@ -95,6 +100,9 @@
 			dependencies = (
 			);
 			name = TCA_ImageList;
+			packageProductDependencies = (
+				BEB11CBE2B4ED16400E70D1E /* ComposableArchitecture */,
+			);
 			productName = TCA_ImageList;
 			productReference = BEF644B92B44543A0081B18B /* TCA_ImageList.app */;
 			productType = "com.apple.product-type.application";
@@ -123,6 +131,9 @@
 				Base,
 			);
 			mainGroup = BEF644B02B44543A0081B18B;
+			packageReferences = (
+				BEB11CBD2B4ED16400E70D1E /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = BEF644BA2B44543A0081B18B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -153,6 +164,7 @@
 				BEF644BF2B44543A0081B18B /* ContentView.swift in Sources */,
 				BEF644BD2B44543A0081B18B /* TCA_ImageListApp.swift in Sources */,
 				BEF644D22B4454AD0081B18B /* ImageService.swift in Sources */,
+				BEB11CC12B4ED22F00E70D1E /* PhotoCellFeature.swift in Sources */,
 				BEF644D32B4454AD0081B18B /* PhotoCell.swift in Sources */,
 				BEF644D02B4454AD0081B18B /* ImageInfo.swift in Sources */,
 			);
@@ -296,6 +308,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -303,9 +316,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gucci.TCA-ImageList";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -325,6 +340,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -332,9 +348,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gucci.TCA-ImageList";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -360,6 +378,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BEB11CBD2B4ED16400E70D1E /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BEB11CBE2B4ED16400E70D1E /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BEB11CBD2B4ED16400E70D1E /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BEF644B12B44543A0081B18B /* Project object */;
 }

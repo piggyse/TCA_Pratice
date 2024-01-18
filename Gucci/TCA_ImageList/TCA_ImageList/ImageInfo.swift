@@ -7,24 +7,16 @@
 
 import Foundation
 
-struct Urls: Codable {
-    let raw, full, thumb, smallS3: String
-    let regular, small: String
-
-    enum CodingKeys: String, CodingKey {
-        case raw, full, thumb
-        case smallS3 = "small_s3"
-        case regular, small
-    }
-}
-
-struct ImageInfo: Codable, Identifiable {
+struct ImageInfo: Decodable, Identifiable {
     let id: String
     let height, width: Int
-    let urls: Urls
+    let author: String
+    let urlWebPath, imageUrl: String
 
     enum CodingKeys: String, CodingKey {
-        case id
-        case height, width, urls
+        case id, author
+        case height, width
+        case urlWebPath = "url"
+        case imageUrl = "download_url"
     }
 }

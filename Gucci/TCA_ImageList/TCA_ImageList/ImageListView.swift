@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ImageListView: View {
     @State private var images = [ImageInfo]()
-    private let service = ImageService()
+//    private let service = ImageService()
     
     var body: some View {
         List {

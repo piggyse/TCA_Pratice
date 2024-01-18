@@ -6,29 +6,30 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct PhotoCell: View {
-    let remoteImagePath: String
-    private var url: URL? {
-        URL(string: remoteImagePath)
-    }
+    let store: StoreOf<PhotoCellFeature>
     
     var body: some View {
-        AsyncImage(url: url) { asyncImagePhase in
-            switch asyncImagePhase {
-            case .empty:
-                progressViewWhenEmpty
-            case .success(let image):
-                image
-                    .resizable()
-                    .edgesIgnoringSafeArea(.all)
-                    .aspectRatio(contentMode: .fill)
-                    .clipped()
-            case .failure(_):
-                failureView
-            @unknown default:
-                failureView
+        WithViewStore(self.store, observe: { $0 }) { viewStore in
+            AsyncImage(url: URL(string: viewStore.imageURL)) { asyncImagePhase in
+                switch asyncImagePhase {
+                case .empty:
+                    progressViewWhenEmpty
+                case .success(let image):
+                    image
+                        .resizable()
+                        .edgesIgnoringSafeArea(.all)
+                        .aspectRatio(contentMode: .fill)
+                        .clipped()
+                case .failure(_):
+                    failureView
+                @unknown default:
+                    failureView
+                }
             }
+            
         }
     }
 }
@@ -47,6 +48,7 @@ private extension PhotoCell {
     @ViewBuilder
     var failureView: some View {
         Color(.black)
+            .frame(width: 200, height: 300)
             .overlay {
                 Text("Something went wrong")
                     .font(.largeTitle)
@@ -56,5 +58,7 @@ private extension PhotoCell {
 }
 
 #Preview {
-    PhotoCell(remoteImagePath: "https://images.unsplash.com/photo-1682685796186-1bb4a5655653?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzOTQ1MDB8MXwxfGFsbHwxfHx8fHx8Mnx8MTcwNDI4Nzc4NXw&ixlib=rb-4.0.3&q=80&w=400")
+    PhotoCell(store: Store(initialState: PhotoCellFeature.State()) {
+        PhotoCellFeature()
+    })
 }
