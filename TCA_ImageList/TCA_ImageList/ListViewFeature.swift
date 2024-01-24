@@ -15,12 +15,16 @@ struct ListViewFeature {
         var path = StackState<ListItemViewFeature.State>()
     }
 
-    enum Action: Equatable {
+    enum Action {
         case fetchImageMetaDataArray
         case fetchMoreImageMetaData(Int)
         case imageMetaDataResponse([ImageMetaData])
         case moreImageMetaDataResponse([ImageMetaData])
         case path(StackAction<ListItemViewFeature.State, ListItemViewFeature.Action>)
+
+        enum Alert: Equatable {
+            case confirmDeletion(id: ImageMetaData.ID)
+        }
     }
 
     @Dependency(\.imageUseCase) private var imageUseCase
@@ -43,6 +47,10 @@ struct ListViewFeature {
                 return .none
             case .moreImageMetaDataResponse(let imageMetaData):
                 state.imageMetaDataArray.append(contentsOf: imageMetaData)
+                return .none
+            case let .path(.element(id: id, action: .delegate(.confirmDeletion))):
+                guard let detailState = state.path[id: id] else { return .none }
+                state.imageMetaDataArray.remove(id: detailState.imageMetaData.id)
                 return .none
             case .path:
                 return .none

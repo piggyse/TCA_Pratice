@@ -7,13 +7,14 @@
 
 import ComposableArchitecture
 
-struct MainViewFeature: Reducer {
+@Reducer
+struct MainViewFeature {
     struct State: Equatable {
         var isLoading = true
         var imageListViewState = ListViewFeature.State()
     }
 
-    enum Action: Equatable {
+    enum Action {
         case listViewAction(ListViewFeature.Action)
     }
 

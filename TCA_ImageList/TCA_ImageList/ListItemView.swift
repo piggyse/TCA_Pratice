@@ -35,7 +35,7 @@ struct ListItemView: View {
             }
 
             Button {
-                // 삭제 action
+                viewStore.send(.deleteButtonTapped)
             } label: {
                 HStack {
                     Text("삭제")
@@ -46,6 +46,7 @@ struct ListItemView: View {
             Spacer()
         }
         .padding()
+        .alert(store: self.store.scope(state: \.$alert, action: \.alert))
     }
 }
 
