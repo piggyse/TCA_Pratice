@@ -7,16 +7,16 @@
 
 import Foundation
 
-struct ImageInfo: Decodable, Identifiable {
+struct ImageInfo: Decodable, Equatable, Identifiable {
     let id: String
     let height, width: Int
     let author: String
-    let urlWebPath, imageUrl: String
+    let url, downloadURL: String
 
     enum CodingKeys: String, CodingKey {
         case id, author
         case height, width
-        case urlWebPath = "url"
-        case imageUrl = "download_url"
+        case url
+        case downloadURL = "download_url"
     }
 }

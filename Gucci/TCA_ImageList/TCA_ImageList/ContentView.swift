@@ -6,24 +6,15 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct ContentView: View {
-    @State private var id = UUID()
-    
     var body: some View {
         VStack {
-            ImageListView()
-                .id(id)
-            
-            Spacer()
-            HStack {
-                Button {
-                    id = UUID()
-                } label: {
-                    Text("새로고침")
-                }
-            }
-            .buttonStyle(.borderedProminent)
+            ImageListView(store: Store(initialState: ImageListFeature.State()) {
+                ImageListFeature()
+                    .dependency(\.picsumService, ImageService.liveValue)
+            })
         }
         .padding()
     }

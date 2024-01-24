@@ -6,50 +6,94 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
+
+@Reducer
+struct ImageListFeature {
+    struct State: Equatable {
+        var repository: [ImageInfo]
+        var isLoading = false
+        
+        static func == (lhs: ImageListFeature.State, rhs: ImageListFeature.State) -> Bool {
+            lhs.repository == rhs.repository
+        }
+        
+        init(repository: [ImageInfo] = []) {
+            self.repository = repository
+        }
+    }
+    
+    enum Action {
+        case addButtonTapped
+        case deleteButtonTapped(IndexSet)
+        case clearButtonTapped
+        case imageInfoResponse(ImageInfo)
+    }
+    
+    @Dependency(\.picsumService) var service
+    
+    var body: some ReducerOf<Self> {
+        Reduce { state, action in
+            switch action {
+            case .addButtonTapped:
+                state.isLoading = true
+                return .run { send in
+                    try await send(.imageInfoResponse(service.fetchRandomImage()))
+                }
+            case .clearButtonTapped:
+                state.repository.removeAll()
+                return .none
+            case .deleteButtonTapped(let indexSet):
+                state.repository.remove(atOffsets: indexSet)
+                return .none
+            case .imageInfoResponse(let imageInfo):
+                state.isLoading = false
+                state.repository.append(imageInfo)
+                return .none
+            }
+        }
+    }
+}
 
 struct ImageListView: View {
-    @State private var images = [ImageInfo]()
-//    private let service = ImageService()
+    let store: StoreOf<ImageListFeature>
     
     var body: some View {
-        List {
-            ForEach(images) { imageInfo in
-                let remotePath = imageInfo.urls.small
-                PhotoCell(remoteImagePath: remotePath)
-            }
-            .onDelete(perform: delete)
-        }
-        .listStyle(.plain)
-        .task(priority: .background) {
-            self.images = await service.fetchList()
-        }
-        .toolbar {
-            ToolbarItem(placement: .primaryAction) {
-                Button {
-                    add()
-                } label: {
-                    Image(systemName: "plus.circle")
+        WithViewStore(self.store, observe: { $0 }) { viewStore in
+            List {
+                ForEach(viewStore.repository) { imageInfo in
+                    PhotoCell(imageInfo: imageInfo)
+                }
+                .onDelete { indexSet in
+                    viewStore.send(.deleteButtonTapped(indexSet))
                 }
             }
-        }
-        .navigationTitle("사진 수: \(images.count)")
-        .navigationBarTitleDisplayMode(.inline)
-    }
-    
-    private func delete(at offsets: IndexSet) {
-        images.remove(atOffsets: offsets)
-    }
-    
-    private func add() {
-        Task {
-            guard let image = await service.fetchImage() else { return }
-            self.images.append(image)
+            .listStyle(.plain)
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button {
+                        viewStore.send(.addButtonTapped)
+                    } label: {
+                        Image(systemName: "plus.circle")
+                    }
+                }
+                ToolbarItem(placement: .secondaryAction) {
+                    Button {
+                        viewStore.send(.clearButtonTapped)
+                    } label: {
+                        Text("Clear List")
+                    }
+                }
+            }
         }
     }
 }
 
 #Preview {
     NavigationStack {
-        ImageListView()
+        ImageListView(store: Store(initialState: ImageListFeature.State()) {
+            ImageListFeature()
+                .dependency(\.picsumService, ImageService.liveValue)
+        })
     }
 }

@@ -19,6 +19,7 @@ protocol ImageFetchable {
 }
 
 struct ImageService {
+    
     var fetchRandomImage: () async throws -> ImageInfo
 }
 

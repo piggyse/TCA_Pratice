@@ -9,11 +9,10 @@ import SwiftUI
 import ComposableArchitecture
 
 struct PhotoCell: View {
-    let store: StoreOf<PhotoCellFeature>
+    let imageInfo: ImageInfo
     
     var body: some View {
-        WithViewStore(self.store, observe: { $0 }) { viewStore in
-            AsyncImage(url: URL(string: viewStore.imageURL)) { asyncImagePhase in
+        AsyncImage(url: URL(string: imageInfo.downloadURL)) { asyncImagePhase in
                 switch asyncImagePhase {
                 case .empty:
                     progressViewWhenEmpty
@@ -28,9 +27,7 @@ struct PhotoCell: View {
                 @unknown default:
                     failureView
                 }
-            }
-            
-        }
+            }   
     }
 }
 
@@ -58,7 +55,5 @@ private extension PhotoCell {
 }
 
 #Preview {
-    PhotoCell(store: Store(initialState: PhotoCellFeature.State()) {
-        PhotoCellFeature()
-    })
+    PhotoCell(imageInfo: .init(id: "0", height: 200, width: 300, author: "Gucci", url: "", downloadURL: "https://fastly.picsum.photos/id/276/200/300.jpg?hmac=5VSJJxPMnu25ukKlrNc0y2KxLtG_jF7BfA13IlTm0uo"))
 }
